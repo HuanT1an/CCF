@@ -1,0 +1,15 @@
+int addDigits(int num){
+    int a;
+    int b;
+    int sum=0;
+if(num<10)
+return num;
+while(num>=10)
+{
+  a=num%10;//求个位
+  b=num/10;//求十位
+  sum=a+b;
+  num=sum;
+}
+return sum;
+}
