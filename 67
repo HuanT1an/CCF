@@ -1,0 +1,36 @@
+public class Solution {
+    public string AddBinary(string a, string b) {
+        StringBuilder str = new StringBuilder(20);
+        int t = 0;//判断是否有进位
+        int i,j;
+        int sum=0;
+        for(i=a.Length-1,j=b.Length-1;i>= 0||j>=0;i--,j--)
+        {
+            sum = t;
+            if(i>=0)
+           {
+               sum+=a[i]-'0';
+           }
+           else
+           {
+               sum+=0;
+           }
+            if(j>=0)
+           {
+               sum+=b[j]-'0';
+           }
+           else
+           {
+               sum+=0;
+           }
+            str.Append(sum % 2);//利用append将sum求余后的数加到str后面
+            t = sum / 2;//对2取整，判断是否有进位
+        }
+        if(t == 1){
+            str.Append(1);//判断最后是否有进位
+        }
+        char[] charArr = str.ToString().ToCharArray();
+        Array.Reverse(charArr);//Rervese的用途是反转数组中元素的顺序
+        return new String(charArr);
+    }
+}
