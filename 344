@@ -1,0 +1,13 @@
+void reverseString(char* s, int sSize){
+    char t;
+    if(s!=NULL)
+    {
+        for(int i=0;i<(sSize/2);i++)//靠循环实现第一位和最后一位交换，然后逐渐向中间靠拢
+        {
+         t = s[i];
+         s[i] = s[sSize-i-1];   
+         s[sSize-i-1] = t;
+        }
+    }
+    return s;
+}
