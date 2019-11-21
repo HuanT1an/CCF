@@ -1,0 +1,22 @@
+int balancedStringSplit(char * s){
+  int i=0;
+    int num=0;
+    int t=0;
+    while(s[i]!='\0')//循环到字符串最后
+    {
+    if(s[i] == 'R')//思路是看R和L的个数相等时，t的数量加一，最后输出t的数量
+    {
+      num++;//有R，num就加上去
+    }
+    else
+    {
+      num--;
+    }
+    if(num==0)
+    {
+      t++;
+    }
+    i++;
+    }
+    return t;
+}
