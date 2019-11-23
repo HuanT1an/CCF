@@ -1,0 +1,24 @@
+int lastStoneWeight(int* stones, int stonesSize){
+int i,j;
+int t=0,max;
+while(stonesSize>1)//判断石头的数量是否足够进行比较
+{
+    for(j=1;j<=2;j++)
+    {
+        max=stones[stonesSize-j];
+        for(i=stonesSize-j;i>=0;i--)
+        {
+            if(max<stones[i])//运用排序将数组从小到大排列
+            {
+                max=stones[i];//更新最大值
+                t=stones[i];
+                stones[i]=stones[stonesSize-j];
+                stones[stonesSize-j]=t;
+            }
+        }
+    }
+    stones[stonesSize-2]=stones[stonesSize-1]-stones[stonesSize-2];
+    stonesSize--;
+}
+    return stones[0];
+}
