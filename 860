@@ -1,0 +1,44 @@
+bool lemonadeChange(int* bills, int billsSize){
+int i = 0;
+    int c5  = 0;  // 记录5元的数量
+    int c10 = 0;  // 记录10元的数量
+    for (i=0;i<billsSize;i++) //开始收钱
+    {
+        if (bills[i]==5)
+        {
+            c5++;
+        } 
+        if (bills[i]==10)//10元找零 
+        {
+            c5--;
+            c10++;
+            if (c5<0) 
+            {
+                return false;    
+            }
+        }
+        if (bills[i]==20) 
+        {
+            if ((c5<=0&&c10<=0)||(c5<=2&&c10==0)) 
+            {
+                return false;
+            }
+            
+            if (c10>0) //20找零有1张10元和1张5元或3张10元
+            {
+                c10--;
+                c5--;
+            }
+            else 
+            {
+                c5=c5-3;
+            }
+            
+            if (c5<0) 
+            {
+                return false;    
+            }
+        }
+    } 
+    return true;    
+}
