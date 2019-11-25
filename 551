@@ -1,0 +1,22 @@
+bool checkRecord(char * s){
+    int len = strlen(s);//计算s字符串的长度
+    int i, A=2, L=3;//给A和L设定初值，再用循环，如果出现A或L就相应减少A或L的值，达到0就输出false
+    for (i= 0; i<len;++i) 
+    {
+        if (s[i]=='L') 
+        {
+            L--;
+        }
+        else 
+        {
+            L = 3;
+            if (s[i]=='A')
+            {
+                A--;
+            }
+        }
+        if (0 == A || 0 == L) //通过上面循环检查A和L的值
+        return false;
+    }
+    return true;
+}
