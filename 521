@@ -1,0 +1,11 @@
+int findLUSlength(char * a, char * b){
+    if (0==strcmp(a,b))//比较a，b两个字符串
+{
+    return -1;
+}
+if (strlen(a)>=strlen(b))//题目本质是求最长字符串的长度
+{
+    return strlen(a);
+}
+    return strlen(b);
+}
