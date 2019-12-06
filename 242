@@ -1,0 +1,18 @@
+bool isAnagram(char * s, char * t){
+int n=strlen(s),m=strlen(t);
+    if(n!=m)//判断两字符串长度,不等则输出false
+        return false;
+    int a[26]={0};
+    int i;
+    for(i=0;i<n;i++)//若相等则将两字符串中每种字母做差(比如i=1时，a[13]走完循环值仍为0)
+    {
+        a[s[i]-'a']++;
+        a[t[i]-'a']--;
+    }
+    for(i=0;i<26;i++)
+    {
+        if(a[i]!=0)
+        return false;
+    }
+    return true;
+}
