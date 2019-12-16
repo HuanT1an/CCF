@@ -1,0 +1,33 @@
+bool detectCapitalUse(char * word){
+    int capital=0;
+    int ac=0;
+    int i=0;
+    if (word[0]>='A'&&word[0]<='Z')//如果首字母为大写
+    {
+        for (i=1;i<strlen(word);i++)//此循环包括1，3两种情况
+        {
+            if (word[i]>='a'&&word[i]<='z')//其余字母为小写
+            {
+                capital=1;
+            }
+            if (word[i]>='A'&&word[i]<='Z')//其余字母为大写
+            {
+                ac=1;
+            }
+        }
+    }
+    else//首字母不为大写
+    {
+        for (i=1;i<strlen(word);i++)//其余字母为大写
+        {
+            if (word[i]>='A'&&word[i]<='Z')
+            {
+                return false;
+            }
+        }
+    }
+    if (capital!=0&&ac!=0)//capitai和ac若同时不为0则输出false
+        return false;
+    else
+        return true;
+}
