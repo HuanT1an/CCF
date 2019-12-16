@@ -1,0 +1,42 @@
+char * longestCommonPrefix(char ** strs, int strsSize){
+    if (strsSize==0) 
+    return "";
+	if (strsSize == 1) //两种特殊情况
+    return strs[0];
+
+	int minSize = strlen(strs[0]);
+	int i;
+	int t;
+	for (i=1;i<strsSize;i++) 
+    {
+		t=strlen(strs[0]);
+		if (t<minSize) 
+        {
+			minSize=t;
+		}
+	}
+	if (minSize==0) 
+    return "";
+	char *res=malloc(minSize+1);
+    memset(res,0,minSize+1);// memset函数用来初始化res的值
+	int br=0;
+	for (i=0;i<minSize;i++) //i来表示第一个单词的组成字母的下标值
+    {
+		int j;
+		for (j=1;j<strsSize;j++) //用j来表示单词的下标值，若出现不同字母则break，进行下一个单词的比较
+        {
+			if (strs[0][i]!=strs[j][i]) 
+            {
+				br=1;
+				break;
+			}
+            
+		}
+	    if (br) 
+        {
+			break;
+		}
+		res[i]=strs[0][i];
+	}
+	return res;
+}
