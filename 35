@@ -1,0 +1,15 @@
+int searchInsert(int* nums, int numsSize, int target){
+    int i;
+    if(nums == NULL)
+    {
+        return 0;
+    }
+    for(i=0;i<numsSize;i++) 
+    {
+        if(target<=nums[i])
+        {
+            return i;
+        }
+    }
+    return numsSize;//如果目标值大于所有数则插入到最后，返回长度
+}
