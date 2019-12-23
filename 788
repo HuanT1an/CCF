@@ -1,0 +1,53 @@
+bool isGood(int n)
+{
+	int cur;
+	int rCur;
+	int rN = 0;
+	int rNewN = 0;
+	while(n > 0) 
+    {
+		cur = n % 10;
+		switch (cur) 
+        {
+			case 0:
+			case 1:
+			case 8:
+				rCur = cur;
+				break;
+			case 2:
+				rCur = 5;
+				break;
+			case 5:
+				rCur = 2;
+				break;
+			case 6:
+				rCur = 9;
+				break;
+			case 9:
+				rCur = 6;
+				break;
+			default:
+				return false;
+		}
+		rN = rN * 10 + cur;
+		rNewN = rNewN * 10 + rCur;
+		n /= 10;
+	}
+	if (rN == rNewN)
+     {
+		return false;
+	}
+	return true;
+}
+int rotatedDigits(int N){
+	int i;
+	int t = 0;
+	for (i = 1; i <= N; i++)
+     {
+		if (isGood(i) == true) 
+        {
+			t++;
+		}
+	}
+	return t;
+}
