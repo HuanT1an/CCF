@@ -1,0 +1,18 @@
+int guess(int num);
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        long long left = 1;
+		long long right = n;//定义两个long型指针
+		long long mid;
+		int r;
+		while((r=guess((mid=(left+right)/2)))!=0){
+			if(r<0)
+				right = mid-1;
+			else
+				left = mid+1;
+		}
+		return mid;
+    }
+};
