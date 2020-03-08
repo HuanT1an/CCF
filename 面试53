@@ -1,0 +1,11 @@
+int missingNumber(int* nums, int numsSize){
+    int i,res=numsSize;//若让res初值为0，当缺失数字为最后一位，返回值会出现错误
+    for(i=0;i<numsSize;i++){
+        if(i!=nums[i]){
+            res=i;
+            break;
+        }
+            
+    }
+    return res;
+}
