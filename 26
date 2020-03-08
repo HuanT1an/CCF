@@ -1,0 +1,13 @@
+int removeDuplicates(int* nums, int numsSize){
+    if(numsSize==0||numsSize==1)
+    return numsSize;
+    int i;
+    int t=1;
+    for (i=1;i<numsSize;i++){
+        if (nums[i]!=nums[i-1]){
+            nums[t]=nums[i];
+            t++;
+        }//当前数与前一个数进行比较，如果不相同则直接插入
+    }
+    return t;
+}
