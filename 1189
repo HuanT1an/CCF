@@ -1,0 +1,41 @@
+int maxNumberOfBalloons(char * text){
+    int i,num = 0;
+    int b=0,a=0,l=0,o=0,n=0;//记录5个字母数量
+    for(i=0;i<=strlen(text);i++){
+        if( 'b' == text[i] )
+        b++;
+        else if( 'a' == text[i] )
+        a++;
+        else if( 'l' == text[i] )
+        l++;
+        else if( 'o' == text[i] )
+        o++;
+        else if( 'n' == text[i] )
+        n++;
+}
+if(b<a){
+    num=b;
+}
+else{
+    num=a;
+}
+if(num<(l=l/2)){
+    num=num;
+}
+else{
+    num=l;
+}
+if(num<(o=o/2)){
+    num=num;
+}  
+else{
+    num=o;
+}
+if(num<n){
+    num=num;
+}
+else{
+    num=n;
+}
+return num;
+}
