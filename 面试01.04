@@ -1,0 +1,16 @@
+bool canPermutePalindrome(char* s){
+    int num[200]={0};
+    int i,flag=0;
+    for(i=0;i<strlen(s);i++){
+        num[s[i]]++;//记录同一字母的数量
+    }
+    for(i=0;i<200;i++){
+        if(num[i]%2!=0){//判断奇数，是则flag+1
+            flag++;
+        }
+    }
+    if(flag>1){
+        return false;//若奇数字符超过一个则不符合题意
+    }
+    return true;
+}//根据题意，串中只能出现一个奇数字符，因此只要检查是否有多个奇数字符
