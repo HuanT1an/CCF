@@ -1,0 +1,12 @@
+char * generateTheString(int n){
+    int i;
+    char *c = (char *)malloc((n+1)*sizeof(char));
+    memset(c,0,(n+1)*sizeof(char));//定义一个字符串c来储存接下来要输入的字符
+    for (i=0;i<n;i++){
+        c[i]='a';
+    }
+    if (n%2==0) {//判断n的奇偶性，若为奇数可以全为a，若为偶数则将最后一位改成b
+        c[n-1]='b';
+    }
+    return c;
+}
