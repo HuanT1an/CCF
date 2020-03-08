@@ -1,0 +1,28 @@
+char * reverseOnlyLetters(char * S){
+     int length=0,i,j;
+    while(S[length]!=0) {
+        length++;
+    }
+    char str[length+1];
+    str[length]=0;
+    i=0;
+    j=length-1;
+    while(i<=j){//双指针向中间靠近
+        if(!(S[i]>='A'&&S[i]<='Z'||S[i]>='a'&&S[i]<='z')){
+            str[i]=S[i];
+            i++;
+            continue;
+        }
+        if(!(S[j]>='A'&&S[j]<='Z'||S[j]>='a'&&S[j]<='z')){
+            str[j]=S[j];
+            j--;
+            continue;//两个if语句判断是否为字母
+        }
+        str[i]=S[j];
+        str[j]=S[i];//当S[i]和S[j]同时为字母时交换，否则就照搬。
+        i++;
+        j--;
+    }
+    S=str;//最后再将str的值传给S
+    return S;
+}
