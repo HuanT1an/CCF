@@ -1,0 +1,10 @@
+char* reverseLeftWords(char* s, int n){
+    int len = strlen(s);
+    char* arr = (char*)malloc(sizeof(char) * (len + 1));//给串分配空间
+    int i = 0;
+    for (; i < strlen(s); i++) {
+        arr[i] = s[(i + n) % (len)];
+    }
+    arr[i] = '\0';//终止，否则会溢出
+    return arr;
+}
