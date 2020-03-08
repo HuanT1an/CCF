@@ -1,0 +1,9 @@
+int findMagicIndex(int* nums, int numsSize){
+    if(nums==NULL)//如果数组为空返回-1
+    return -1;
+    for(int i=0;i<numsSize;i++){
+        if(nums[i]==i)//如题，满足下标的值与当前数组里面的数相等
+        return nums[i];
+    }
+    return -1;//未满足条件则返回-1
+}
