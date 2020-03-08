@@ -1,0 +1,21 @@
+char * reverseStr(char * s, int k){
+    int len = strlen(s);
+    if (len == 0) return NULL;//判断是否为空
+    if (k < 2) return s;//小于2时不会发生反转
+    int i, start, end;
+    char t;
+    for (i = 0; i < len; i += 2 * k){
+        start = i;
+        if(len>i+k){
+            end=i+k-1;
+        }
+        else
+        end=len-1;
+        while (start < end) {//排序
+            t = s[start];
+            s[start++] = s[end];
+            s[end--] = t;
+        }
+    }
+    return s;
+}
