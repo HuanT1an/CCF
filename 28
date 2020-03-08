@@ -1,0 +1,24 @@
+int strStr(char * haystack, char * needle){
+    int a=strlen(haystack);
+    int b=strlen(needle);
+    if(b==0) return 0;//needle为空返回0
+    if(a==0) return -1;//haystack为空即匹配不到，返回-1
+    int t=0;
+    int c=0;
+    int i;
+    for(i=0;i<a;){
+        if(haystack[i]==needle[t]){
+            if(t==b-1){
+                return i-b+1;
+            }//当找出字符串时,算出当前i的位置,再往前推b-1的长度，即i-（b+1）,找回第一次出现的位置（在haystack中
+            t++;
+            i++;
+        }
+        else{
+            t=0;
+            c++;
+            i=c;
+        }
+    }
+    return -1;
+}
