@@ -1,0 +1,16 @@
+int removePalindromeSub(char * s){
+    int len=strlen(s);
+    if(len==0){
+        return 0;
+    }
+    int m=0,n=len-1;
+    while(m<n){//利用双指针判断是否整个串就是一个回文串，如果是可以1次删除，不是则2次删除
+        if(s[m]!=s[n]){
+            return 2;
+        }
+        m++;
+        n--;
+    }
+    return 1;
+
+}//题目中给出的是删除子序列而不是子串，而该字符串仅由a和b组成，因此只存在3种返回值
