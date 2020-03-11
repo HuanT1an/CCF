@@ -1,0 +1,14 @@
+int minDeletionSize(char ** A, int ASize){
+    int i,j,t=0;
+    for(i=0;i<strlen(*(A+0));i++){//横向
+        for(j=0;j<ASize-1;j++){//纵向比较
+            if(A[j][i]>A[j+1][i]){
+                t++;
+                break;
+            }
+        }
+    }
+    return t;
+
+}
+
