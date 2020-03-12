@@ -1,0 +1,23 @@
+bool isFlipedString(char* s1, char* s2){
+    int m,n;
+    int i,j;
+    m=strlen(s1);
+    n=strlen(s2);
+    char* c=(char*)malloc(sizeof(char)*m*2+1);
+    if (m!=n){
+        return false;//长度不等必不可能是
+    } 
+    else if (m==0){
+        return true;
+    }
+    for (i=0;i<2*m;i++){
+        c[i] = s1[i%m];//将s1输入c中两次
+    }
+    c[i]='\0';//不设置结尾会溢出
+    if (strstr(c,s2)!=NULL){//运用strstr函数判断s2是否在c中
+        return true;
+    } else {
+        return false;
+    }
+
+}
