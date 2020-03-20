@@ -1,0 +1,35 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize){
+    if(!nums1Size || !nums1Size) {
+        *returnSize = 0;
+        return 0;
+    }
+    int min;
+    if(nums1Size<nums2Size){
+        min=nums1Size;
+    }
+    else{
+        min=nums2Size;
+    }
+    int *num=(int*)malloc(sizeof(int) * min);
+    int i,j,k;
+    int t=0;
+    for(i=0; i<nums1Size;i++) {
+        for(j=0; j <nums2Size;j++) {
+            int flag=0;
+            if(nums1[i]==nums2[j]) {
+                for(k=0;k<min;k++){
+                    if(num[k]==nums1[i])
+                        flag=1;
+                }
+                if(flag!=1)
+                    num[t++]=nums1[i];
+            }
+        }
+    }
+    *returnSize=t;
+    return num;
+
+}
