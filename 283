@@ -1,0 +1,11 @@
+void moveZeroes(int* nums, int numsSize){
+    int t = 0;//用t标记0的个数
+    int i;
+    for(i=0; i<numsSize; i++){
+        nums[i-t]=nums[i];
+        if(nums[i]==0)
+            t++;
+    }
+    for(int j=numsSize-1; j>numsSize-t-1; j--)
+        nums[j] = 0;
+}
