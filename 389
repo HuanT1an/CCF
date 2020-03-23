@@ -1,0 +1,10 @@
+char findTheDifference(char * s, char * t){
+    int a=0,b=0;
+    for(int i=0;i<strlen(t);i++){
+        if(i<strlen(t)-1){
+        a+=s[i];
+        }
+        b+=t[i];
+    }
+    return b-a;
+}
